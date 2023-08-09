@@ -10,6 +10,6 @@ func SetupRoutes(app *fiber.App) {
 	api := app.Group("/api", logger.New())
 	api.Get("/", handler.Hello)
 
-	v1 := api.Group("/v1", logger.New())
-	v1.Get("/", handler.HelloV1)
+	user := api.Group("/user")
+	user.Get("/:id", handler.GetUser)
 }
